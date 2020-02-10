@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momondo</title>
+</head>
+<body>
+
+  <input type="text" value="" oninput="getCitites()">
+
+  <script>
+    // AJAX
+    // ASYNC functions something happening at the same time
+    // input / output
+    // xmlhttprequest 2005 vs fetch new 2013
+    // callbacks - difficult
+    // promises
+    // .then().then().then() catch?
+    // async await
+
+    async function getCitites(){
+      var connection = await fetch('api-city-search.php')
+      // console.log(response) // 200
+      var sData = await connection.text()      
+      console.log(sData) // text
+      var jData = JSON.parse(sData); // convert text into object
+      console.log(jData);
+    }
+  </script>
+
+
+</body>
+</html>
