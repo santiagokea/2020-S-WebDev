@@ -13,7 +13,16 @@ body{
   display: none;
   border: 1px solid black;
 }
+#results > div{
+  cursor: pointer;
+}
 
+#boxResults{
+  width: 200px;
+}
+input{
+  width: 100%;
+}
 
 
 

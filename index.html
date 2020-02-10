@@ -8,11 +8,9 @@
 </head>
 <body>
 
-  <div>
+  <div id="boxResults">
     <input id="txtSearch" type="text" value="" oninput="getCitites()">
     <div id="results">
-      <div>ABC</div>
-      <div>BCD</div>
     </div>
   </div>
 
@@ -31,12 +29,26 @@
       var sData = await connection.text()      
       console.log(sData) // text
       var jData = JSON.parse(sData); // convert text into object
+      var sDivCities = '' // <div>X</div><div>Y</div>
       for(var i = 0; i < jData.cities.length; i++ ){
-        // cities [  {name} , {} , {}]
-        console.log( jData.cities[i].name )
+        // Concatanate
+        sDivCities += `<div onclick="selectCity(this)">${jData.cities[i].name}</div>` 
       }
+      // Overwrite results
+      results.innerHTML = sDivCities
       results.style.display = 'block'
     }
+
+
+    function selectCity(objectDOM){
+      var sCityName = objectDOM.innerHTML
+      txtSearch.value = sCityName
+      results.style.display = "none"
+    }
+
+
+
+
   </script>
 
 
