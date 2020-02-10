@@ -1,7 +1,7 @@
 <?php
 http_response_code(200);
 header('Content-Type: application/json');
-$sSearchFor = 'B';
+$sSearchFor = $_GET['cityName'];
 $sData = file_get_contents('data.json');
 $jData = json_decode($sData);
 $jResponse = new stdClass(); // {}

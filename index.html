@@ -4,28 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Momondo</title>
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
 
-  <input type="text" value="" oninput="getCitites()">
+  <div>
+    <input id="txtSearch" type="text" value="" oninput="getCitites()">
+    <div id="results">
+      <div>ABC</div>
+      <div>BCD</div>
+    </div>
+  </div>
 
   <script>
-    // AJAX
-    // ASYNC functions something happening at the same time
-    // input / output
-    // xmlhttprequest 2005 vs fetch new 2013
-    // callbacks - difficult
-    // promises
-    // .then().then().then() catch?
-    // async await
-
     async function getCitites(){
-      var connection = await fetch('api-city-search.php')
+
+     
+      if( txtSearch.value.length == 0 ){
+        results.style.display = 'none'
+        return // Return means take me out of the function
+      }
+      var sSearchFor = txtSearch.value
+      var url = 'api-city-search.php?cityName='+sSearchFor
+      var connection = await fetch(url)
       // console.log(response) // 200
       var sData = await connection.text()      
       console.log(sData) // text
       var jData = JSON.parse(sData); // convert text into object
-      console.log(jData);
+      for(var i = 0; i < jData.cities.length; i++ ){
+        // cities [  {name} , {} , {}]
+        console.log( jData.cities[i].name )
+      }
+      results.style.display = 'block'
     }
   </script>
 
