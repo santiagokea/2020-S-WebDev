@@ -1,5 +1,6 @@
 <?php
-echo '{"status":1,"price":500}';
+$sData = file_get_contents('data.json');
+echo $sData;
 
 
 
