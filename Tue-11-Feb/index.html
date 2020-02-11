@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momondo</title>
+</head>
+<body>
+
+  <button onclick="getFlights()">FIND FLIGHTS</button>
+  
+  <script>
+    async function getFlights(){
+      var connection = await fetch('momondo.php')
+      var jData = await connection.json()
+      console.log(jData)
+    }
+  </script>
+
+
+</body>
+</html>
