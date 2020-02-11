@@ -1,0 +1,9 @@
+{
+  "from":"A",
+  "to":"D",
+  "totalTimeFlight":600,
+  "stops":[
+    {"cityName":"B","wait":150,"flightTime":60,"flightOrder":2},
+    {"cityName":"C","wait":60,"flightTime":180,"flightOrder":3}
+  ]
+}
