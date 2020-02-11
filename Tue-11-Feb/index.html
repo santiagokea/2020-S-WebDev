@@ -8,20 +8,47 @@
 <body>
 
   <button onclick="getFlights()">FIND FLIGHTS</button>
-  
+
+  <div>FROM: <span id="from"></span></div> 
+  <div>Date: <span id="date"></span></div> 
+  <div id="stops">
+
+  </div>
+
   <script>
     // Selv invoking function
-    (async function getFlights(){
+    async function getFlights(){
       var connection = await fetch('momondo.php')
       var jData = await connection.json()
-      console.log(jData.schedule)
+      // console.log(jData.schedule)
       var aOrderedSchedule = []
       for(var i = 0; i < jData.schedule.length; i++){
-        console.log('position in array', jData.schedule[i].order )       
+        // console.log('position in array', jData.schedule[i].order )       
         aOrderedSchedule[jData.schedule[i].order] = jData.schedule[i]
       }
-      console.log('aOrderedSchedule', aOrderedSchedule)
-    })()
+      document.querySelector('#from').innerText = aOrderedSchedule[0].from
+      var sFromDate = new Date(0)
+      sFromDate.setUTCSeconds(aOrderedSchedule[0].date)
+      sFromDate = sFromDate.toLocaleString('da-DK')
+      // console.log(sFromDate)
+
+      document.querySelector('#date').innerText = sFromDate
+      var sDivsWithStops = ''
+      for(var i = 1; i < aOrderedSchedule.length; i++){
+        var sFromDate = new Date(0)
+        sFromDate.setUTCSeconds(aOrderedSchedule[i].date)
+        sFromDate = sFromDate.toLocaleString('da-DK')        
+        sDivsWithStops += `
+        <div>
+          <div>FROM: ${aOrderedSchedule[i].from}</div>
+          <div>DATE: ${sFromDate}</div>
+        </div>`
+      }
+      document.getElementById('stops').innerHTML = sDivsWithStops
+
+
+      // console.log('aOrderedSchedule', aOrderedSchedule)
+    }
     
   </script>
 
