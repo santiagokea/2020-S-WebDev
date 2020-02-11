@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Momondo</title>
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
 
   <button onclick="getFlights()">FIND FLIGHTS</button>
 
-  <div>FROM: <span id="from"></span></div> 
-  <div>Date: <span id="date"></span></div> 
-  <div id="stops">
-
-  </div>
+  <div id="stops"></div>
 
   <script>
     // Selv invoking function
@@ -26,28 +23,25 @@
         // console.log('position in array', jData.schedule[i].order )       
         aOrderedSchedule[jData.schedule[i].order] = jData.schedule[i]
       }
-      document.querySelector('#from').innerText = aOrderedSchedule[0].from
-      var sFromDate = new Date(0)
-      sFromDate.setUTCSeconds(aOrderedSchedule[0].date)
-      sFromDate = sFromDate.toLocaleString('da-DK')
-      // console.log(sFromDate)
 
-      document.querySelector('#date').innerText = sFromDate
       var sDivsWithStops = ''
-      for(var i = 1; i < aOrderedSchedule.length; i++){
+      for(var i = 0; i < aOrderedSchedule.length; i++){
         var sFromDate = new Date(0)
         sFromDate.setUTCSeconds(aOrderedSchedule[i].date)
         sFromDate = sFromDate.toLocaleString('da-DK')        
         sDivsWithStops += `
         <div>
+          <img class="airline-icon" src="icons/${aOrderedSchedule[i].airlineIcon}">
           <div>FROM: ${aOrderedSchedule[i].from}</div>
           <div>DATE: ${sFromDate}</div>
         </div>`
       }
       document.getElementById('stops').innerHTML = sDivsWithStops
-
-
-      // console.log('aOrderedSchedule', aOrderedSchedule)
+      var jLastCity = aOrderedSchedule[aOrderedSchedule.length-1]
+      console.log(jLastCity)
+      var sTo = `<div>Arrives at city: ${jLastCity.to}</div>`
+      // document.getElementById('stops').innerHTML += sTo
+      document.getElementById('stops').insertAdjacentHTML('beforeend', sTo)
     }
     
   </script>
