@@ -1,4 +1,4 @@
 [
-  {"name":"A"},
-  {"name":"B"}
+  {"name":"A", "price":10, "test":"T1"},
+  {"name":"B", "price":20, "test":"T2"}
 ]
