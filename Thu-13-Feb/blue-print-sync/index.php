@@ -10,7 +10,9 @@
     <?php
     $sData = file_get_contents('data.json');
     $jData = json_decode($sData);
-    echo '<div class="item">Name: '.$jData[0]->name.'</div>';
+    echo '<div class="item">Name: 
+            <input type="text" value="'.$jData[0]->name.'">                 
+          </div>';
     ?>    
   </div>
   <button onclick="getItems()">GET MORE ITEMS</button>
