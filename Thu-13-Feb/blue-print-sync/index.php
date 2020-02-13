@@ -10,19 +10,25 @@
     <?php
     $sData = file_get_contents('data.json');
     $jData = json_decode($sData);
-    echo '<div class="item">Name: 
-            <input type="text" value="'.$jData[0]->name.'">                 
-          </div>';
+    $sBluePrint = file_get_contents('blueprint.html');
+    $sCopy = $sBluePrint;
+    $sCopy = str_replace('::name::', $jData[0]->name, $sBluePrint);
+    echo $sCopy;
     ?>    
   </div>
   <button onclick="getItems()">GET MORE ITEMS</button>
-
+  
 
   <script>
+
+    var sBluePrint = `<?= $sBluePrint ?>`
+
+
     async function getItems(){
       var jResponse = await fetch('api-get-items.php')
       var jData = await jResponse.json()
-      var sItem = `<div class="item">Name: ${jData[1].name}</div>`;
+      var sCopy = sBluePrint
+      var sItem = sCopy.replace('::name::', jData[1].name)
       document.getElementById("items").insertAdjacentHTML('beforeend', sItem)
     }
 
