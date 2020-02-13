@@ -20,6 +20,7 @@
       var sFlightBluePrint = `
       <div class="flight">
         <div>ID: <span class="id">{{id}}</span></div>
+        <div>Price: <span class="price">{{price}}</span></div>
         <div id="stops">{{FLIGHTSHERE}}</div>
       </div>   
       `
@@ -29,6 +30,7 @@
         var sFlightBluePrintCopy = sFlightBluePrint
         // Replace our own invented template engine
         sFlightBluePrintCopy = sFlightBluePrintCopy.replace('{{id}}', jFlight.id)
+        sFlightBluePrintCopy = sFlightBluePrintCopy.replace('{{price}}', jFlight.price)
         // Loop through each of the stops
         var sStops = ''
         for(var j = 0; j < jFlight.stops.length; j++){
