@@ -19,18 +19,23 @@
       var jData = await jResponse.json()
       var sFlightBluePrint = `
       <div class="flight">
-        <div>ID: <span class="id">::id::</span></div>
-        <div id="stops">
-          <div class="stop">::s1::</div>
-          <div class="stop">::s2::</div>
-        </div>
+        <div>ID: <span class="id">{{id}}</span></div>
+        <div id="stops">{{FLIGHTSHERE}}</div>
       </div>   
       `
       var flights = document.querySelector('#flights')
       for(var i = 0; i < jData.length; i++){
+        var jFlight = jData[i]
         var sFlightBluePrintCopy = sFlightBluePrint
         // Replace our own invented template engine
-        sFlightBluePrintCopy = sFlightBluePrintCopy.replace('::id::', 'XXX')
+        sFlightBluePrintCopy = sFlightBluePrintCopy.replace('{{id}}', jFlight.id)
+        // Loop through each of the stops
+        var sStops = ''
+        for(var j = 0; j < jFlight.stops.length; j++){
+          sStops += `<div class="stop">${jFlight.stops[j]}</div>`
+        }
+        // Replace all stops for a flight with the placeholder
+        sFlightBluePrintCopy = sFlightBluePrintCopy.replace('{{FLIGHTSHERE}}', sStops)
         flights.innerHTML += sFlightBluePrintCopy
       }
     }
