@@ -17,7 +17,18 @@ require 'SMTP.php';
 // Instantiation and passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
+
 try {
+
+  $mail->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+  );
+
+
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
@@ -25,8 +36,9 @@ try {
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'santiagokea@gmail.com';                     // SMTP username
     $mail->Password   = $sPassword;                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
     $mail->setFrom('santiagokea@gmail.com', 'Mailer');
