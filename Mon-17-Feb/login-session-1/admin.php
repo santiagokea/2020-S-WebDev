@@ -17,5 +17,6 @@
   <h2>Hi, <?= $sUserEmail ?></h2>
   <a href="logout.php">LOGOUT</a>
   <a href="add-flight.php">ADD FLIGHT</a>
+  <a href="users.php">USERS</a>
 </body>
 </html>
