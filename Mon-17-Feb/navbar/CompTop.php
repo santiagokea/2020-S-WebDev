@@ -17,7 +17,7 @@
     <div class="<?= $sInjectActiveLink =='about-us'?'active':''?>">
       <a href="about-us.php">about-us</a>
     </div>
-    <div  class="">
+    <div class="<?= $sInjectActiveLink =='signup'?'active':''?>">
       <a href="signup.php">signup</a>
     </div>    
 
