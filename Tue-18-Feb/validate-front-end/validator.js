@@ -1,6 +1,16 @@
 function validate(){
-  let oForm = event.target; // the form I submit
-  let aElements = oForm.querySelectorAll('[data-validate]')
+  
+
+  // let oForm = (event.target.localName == 'input') ? event.target.parentElement : event.target
+  if( event.type == 'submit' ){
+    var oForm = event.target
+    var aElements = oForm.querySelectorAll('[data-validate]')
+  }else{
+    var aElements = [event.target]
+  }
+  
+  
+
   for(let i = 0; i < aElements.length; i++){
     aElements[i].classList.remove('invalid')
     let sValidateType = aElements[i].getAttribute('data-validate')
@@ -35,7 +45,10 @@ function validate(){
       break      
     }  
   }
-  return (oForm.querySelectorAll('.invalid').length) ? false : true
+
+  if( oForm  ){
+    return (oForm.querySelectorAll('.invalid').length) ? false : true
+  }
 
 }
 

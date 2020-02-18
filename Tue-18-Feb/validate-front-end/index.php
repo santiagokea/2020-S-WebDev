@@ -8,10 +8,11 @@
 </head>
 <body>
   
-  <form onsubmit="return validate()">
+
+  <form onsubmit= "return validate()">
     <label>name (min 2 max 20 characters) </label>
     <input 
-      oninput="validate()"
+      oninput = "validate()"
       type="text" 
       placeholder="name" 
       data-validate="string" 
@@ -20,6 +21,7 @@
     >                  
     <label>last name (min 2 max 20 characters) </label>
     <input 
+      oninput = "validate()"
       type="text" 
       placeholder="last name" 
       data-validate="string" 
@@ -28,6 +30,7 @@
     >                  
     <label>price (min 1 max 99999)</label>
     <input 
+      oninput = "validate()"
       type="text" 
       placeholder="price"
       data-validate = "integer"
@@ -43,6 +46,7 @@
     
     <button>SIGNUP</button>
   </form>
+
 
   <script src="validator.js"></script>
 
