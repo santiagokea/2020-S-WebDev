@@ -14,12 +14,24 @@
     <label>last name (min 2 max 20 characters) </label>
     <input type="text" placeholder="last name" data-validate="string" data-min="2" data-max="5">                  
   
-    <input type="text" placeholder="price">
+    <input 
+      type="text" 
+      placeholder="price"
+      data-validate = "integer"
+      data-min = "1"
+      data-max = "99999"
+    >
     
     <button>SIGNUP</button>
   </form>
 
   <script src="validator.js"></script>
+
+  <script>
+    // REG EX ONLY DIGITS 0 9
+    var str = "15."
+    console.log( /^\d+$/.test(str) );
+  </script>
 
 </body>
 </html>
