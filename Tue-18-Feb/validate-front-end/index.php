@@ -13,10 +13,13 @@
     <input type="text" placeholder="name" data-validate="string" data-min="2" data-max="5">                  
     <label>last name (min 2 max 20 characters) </label>
     <input type="text" placeholder="last name" data-validate="string" data-min="2" data-max="5">                  
+  
+    <input type="text" placeholder="price">
+    
     <button>SIGNUP</button>
   </form>
 
-  <script src="test.js"></script>
+  <script src="validator.js"></script>
 
 </body>
 </html>

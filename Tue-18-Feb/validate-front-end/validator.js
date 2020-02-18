@@ -19,4 +19,6 @@ function validate(){
       break
     }  
   }
+  return (oForm.querySelectorAll('.invalid').length) ? false : true
+
 }
