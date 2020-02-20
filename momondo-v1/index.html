@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <title>MOMONDO</title>
+</head>
+<body>
+  
+  <nav>
+    <a class="active" href="index.php">momondo</a>
+    <a href="">fly</a>
+    <a href="">hotel</a>
+    <a href="">car</a>
+    <a href="">trips</a>
+    <a href="">discover</a>
+    <a href="">my trips</a>
+    <a href="">login</a>
+  </nav>
+
+  <section id="search">
+    <input type="text" placeholder="from city">
+    <button>&lt;- -&gt;</button>
+    <input type="text" placeholder="to city">
+    <input type="text" placeholder="from date">
+    <input type="text" placeholder="to date">
+    <button id="btnSearch">SEARCH</button>
+  </section>
+
+  <section id="temporal">
+    <img src="temporal.png">
+  </section>
+
+  <main>
+    <div id="options">OPTIONS</div>
+    <div id="results">
+
+      <div id="price-options">
+        <div>
+          Cheapest
+          <p>4.956 kr 19h. 37min.</p>
+        </div>
+        <div class="active">
+          Best
+          <p>2.800 kr 10h. 01min.</p>
+        </div>
+        <div>
+          Fastest
+          <p>14.000 kr 5h. 00min.</p>
+        </div>
+        <div>
+          Custom
+          <p>compare and choose</p>
+        </div>
+      </div>
+
+      <div id="flights">
+
+        <div id="flight">
+          <div id="flight-route">
+            <div>check</div>
+            <div>
+              <img class="airline-icon" src="KL.png">
+            </div>
+            <div>schedule</div>
+            <div>stop</div>
+            <div>total time</div>
+          </div>
+          <div id="flight-buy">
+            <button>BUY</button>
+          </div>
+        </div>
+
+        <div id="flight">
+          <div id="flight-route">
+            <div>check</div>
+            <div>
+              <img class="airline-icon" src="AF.png">
+            </div>
+            <div>schedule</div>
+            <div>stop</div>
+            <div>total time</div>
+          </div>
+          <div id="flight-buy">
+            <button>BUY</button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+  </main>
+
+</body>
+</html>
