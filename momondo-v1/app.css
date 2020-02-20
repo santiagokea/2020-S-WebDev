@@ -75,6 +75,18 @@ nav a:last-child{
   color: white;
   background-color: rgba(222, 22, 102, 1);
 }
+#boxFromCity{
+  position: relative;
+}
+#boxFromCity #fromCityResults{
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  top: 41px;
+  border-radius: 0px 0px 10px 10px;
+}
+
 /*##############################*/
 section#temporal{
   width: 100%;
@@ -151,7 +163,7 @@ main{
 }
 #flight-route .row{
   display: grid;
-  grid-template-columns: 10fr 10fr 10fr 10fr 10fr;
+  grid-template-columns: 3fr 10fr 20fr 10fr 10fr;
 }
 
 

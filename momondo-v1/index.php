@@ -88,7 +88,13 @@ foreach($jData as $jFlight){
   </nav>
 
   <section id="search">
-    <input type="text" placeholder="from city">
+    
+    <div id="boxFromCity">
+      <input oninput="getFromCities()" type="text" placeholder="from city">
+      <div id="fromCityResults"></div>
+    </div>
+
+
     <button>&lt;- -&gt;</button>
     <input type="text" placeholder="to city">
     <input type="text" placeholder="from date">
@@ -142,6 +148,8 @@ foreach($jData as $jFlight){
 
     </div>
   </main>
+
+  <script src="app.js"></script>
 
 </body>
 </html>
