@@ -1,12 +1,14 @@
 <?php
-$iCheapestPrice = 9999999999999999;
 $sData = file_get_contents('most-popular-flights.json');
 $jData = json_decode($sData);
 $sFlightsDivs = '';
 foreach($jData as $jFlight){
+  $iCheapestPrice = $iCheapestPrice ?? $jFlight->price;
   if($jFlight->price < $iCheapestPrice){
     $iCheapestPrice = $jFlight->price;
   }
+  $sDepartureDate = date("Y-M-d H:i", substr($jFlight->departureTime, 0, 10)); 
+
   $sFlightsDivs .= "
     <div id='flight'>
     <div id='flight-route'>
@@ -18,8 +20,8 @@ foreach($jData as $jFlight){
           <img class='airline-icon' src='$jFlight->companyShortcut.png'>
         </div>
         <div>
-          18:15 - 18:30
-          <p>KLM</p>              
+          $sDepartureDate - 18:30
+          <p>$jFlight->companyShortcut</p>              
         </div>
         <div>
           1 stop
@@ -54,7 +56,7 @@ foreach($jData as $jFlight){
     </div>
     <div id='flight-buy'>
       <div>
-        $jFlight->price
+        $jFlight->price Kr.
       </div>
       <button>BUY</button>
     </div>
