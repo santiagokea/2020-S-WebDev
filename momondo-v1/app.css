@@ -131,17 +131,25 @@ main{
 }
 
 #flight-route{
-  /* display: grid; */
-  /* grid-template-columns: 10fr 10fr 10fr 10fr 10fr; */
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-row-gap: 20px;
   color: #333;
   padding: 20px 10px 20px 10px;
   background-color: white;
 }
 #flight-buy{
+  display: grid;
   padding: 20px 10px 20px 10px;
   background-color: #EDECEC;
 }
+#flight-buy > div{
+  font-size: 140%;
+  font-weight: 400;
+  color: black;
+}
 #flight-buy button{
+  align-self: flex-end;
   color: white;
   background-color:rgba(40, 167, 69, 1);
 }
