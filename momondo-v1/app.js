@@ -1,7 +1,10 @@
-function getFromCities(){
+async function getFromCities(){
   oFromCityResults = document.querySelector('#fromCityResults')
   oFromCityResults.innerHTML = ""
-  var aCities = ["a", "b", "c"]
+
+  var jResponse = fetch('api-get-from-cities.php')
+  var aCities = await jResponse.json()
+
   for(var i = 0; i < aCities.length; i++){
     renderFromCity( aCities[i] )
   }
